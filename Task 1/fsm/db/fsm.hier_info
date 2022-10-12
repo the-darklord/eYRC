@@ -1,0 +1,19 @@
+|fsm
+CLK => Y1.CLK
+CLK => FS.CLK
+CLK => TEMP~1.DATAIN
+I[0] => Equal0.IN31
+I[0] => Equal1.IN0
+I[0] => Equal2.IN31
+I[1] => Equal0.IN0
+I[1] => Equal1.IN31
+I[1] => Equal2.IN30
+I[2] => Equal0.IN30
+I[2] => Equal1.IN30
+I[2] => Equal2.IN29
+I[3] => Equal0.IN29
+I[3] => Equal1.IN29
+I[3] => Equal2.IN28
+Y <= Y1.DB_MAX_OUTPUT_PORT_TYPE
+
+

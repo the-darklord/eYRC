@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/sahas/Downloads/fsm/simulation/modelsim
+vfsm
+!s110 1665568345
+!i10b 1
+!s100 7GZkJhGFSzj[[L1[KcWg>0
+IT53Df?nl_07>C:57l:6<42
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1665568305
+8C:/Users/sahas/Downloads/fsm/fsm.v
+FC:/Users/sahas/Downloads/fsm/fsm.v
+L0 21
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z3 !s108 1665568345.000000
+!s107 C:/Users/sahas/Downloads/fsm/fsm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/sahas/Downloads/fsm|C:/Users/sahas/Downloads/fsm/fsm.v|
+!i113 1
+Z4 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/sahas/Downloads/fsm
+Z5 tCvgOpt 0
+vfsm_tb
+!s110 1665568346
+!i10b 1
+!s100 NCIonPHOFI8=QMVUK;g^R3
+IzSTICmbzI^cgcMP7o6;mF1
+R1
+R0
+w1665568010
+8C:/Users/sahas/Downloads/fsm/simulation/modelsim/fsm_tb.v
+FC:/Users/sahas/Downloads/fsm/simulation/modelsim/fsm_tb.v
+L0 3
+R2
+r1
+!s85 0
+31
+R3
+!s107 C:/Users/sahas/Downloads/fsm/simulation/modelsim/fsm_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/sahas/Downloads/fsm/simulation/modelsim|C:/Users/sahas/Downloads/fsm/simulation/modelsim/fsm_tb.v|
+!i113 1
+R4
+!s92 -vlog01compat -work work +incdir+C:/Users/sahas/Downloads/fsm/simulation/modelsim
+R5

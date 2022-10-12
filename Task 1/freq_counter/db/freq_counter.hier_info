@@ -1,0 +1,43 @@
+|freq_counter
+clk => count[0]~reg0.CLK
+clk => count[1]~reg0.CLK
+clk => count[2]~reg0.CLK
+clk => count[3]~reg0.CLK
+clk => count[4]~reg0.CLK
+clk => count[5]~reg0.CLK
+clk => count[6]~reg0.CLK
+clk => count[7]~reg0.CLK
+clk => c1[0].CLK
+clk => c1[1].CLK
+clk => c1[2].CLK
+clk => c1[3].CLK
+clk => c1[4].CLK
+clk => c1[5].CLK
+clk => c1[6].CLK
+clk => c1[7].CLK
+clk => c[0].CLK
+clk => c[1].CLK
+clk => c[2].CLK
+clk => c[3].CLK
+clk => c[4].CLK
+clk => c[5].CLK
+clk => c[6].CLK
+clk => c[7].CLK
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+ip_sig => c.OUTPUTSELECT
+count[0] <= count[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[1] <= count[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[2] <= count[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[3] <= count[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[4] <= count[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[5] <= count[5]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[6] <= count[6]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+count[7] <= count[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
