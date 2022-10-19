@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition"
 
-// DATE "10/11/2022 18:34:02"
+// DATE "10/18/2022 13:30:26"
 
 // 
 // Device: Altera EP4CE6E22C6 Package TQFP144
@@ -38,16 +38,16 @@ input 	[7:0] DUTY_CYCLE;
 output 	PWM_OUT;
 
 // Design Ports Information
-// clk	=>  Location: PIN_86,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[0]	=>  Location: PIN_84,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[1]	=>  Location: PIN_132,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[2]	=>  Location: PIN_52,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[3]	=>  Location: PIN_54,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[4]	=>  Location: PIN_113,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[5]	=>  Location: PIN_111,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[6]	=>  Location: PIN_53,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// DUTY_CYCLE[7]	=>  Location: PIN_7,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// PWM_OUT	=>  Location: PIN_142,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// PWM_OUT	=>  Location: PIN_99,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[0]	=>  Location: PIN_90,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[1]	=>  Location: PIN_91,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[2]	=>  Location: PIN_83,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[3]	=>  Location: PIN_84,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[4]	=>  Location: PIN_86,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[5]	=>  Location: PIN_87,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[6]	=>  Location: PIN_85,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// DUTY_CYCLE[7]	=>  Location: PIN_80,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -61,16 +61,24 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
+wire \PWM_OUT~output_o ;
 wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \DUTY_CYCLE[6]~input_o ;
+wire \DUTY_CYCLE[3]~input_o ;
+wire \DUTY_CYCLE[5]~input_o ;
+wire \DUTY_CYCLE[4]~input_o ;
+wire \LessThan0~1_combout ;
+wire \DUTY_CYCLE[7]~input_o ;
 wire \DUTY_CYCLE[0]~input_o ;
 wire \DUTY_CYCLE[1]~input_o ;
 wire \DUTY_CYCLE[2]~input_o ;
-wire \DUTY_CYCLE[3]~input_o ;
-wire \DUTY_CYCLE[4]~input_o ;
-wire \DUTY_CYCLE[5]~input_o ;
-wire \DUTY_CYCLE[6]~input_o ;
-wire \DUTY_CYCLE[7]~input_o ;
-wire \PWM_OUT~output_o ;
+wire \counter_out[0]~feeder_combout ;
+wire \LessThan0~0_combout ;
+wire \LessThan0~2_combout ;
+wire \PWM~0_combout ;
+wire \PWM~q ;
+wire [7:0] counter_out;
 
 
 hard_block auto_generated_inst(
@@ -78,9 +86,9 @@ hard_block auto_generated_inst(
 	.devclrn(devclrn),
 	.devoe(devoe));
 
-// Location: IOOBUF_X3_Y24_N23
+// Location: IOOBUF_X34_Y17_N16
 cycloneive_io_obuf \PWM_OUT~output (
-	.i(gnd),
+	.i(\PWM~q ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -91,7 +99,7 @@ defparam \PWM_OUT~output .bus_hold = "false";
 defparam \PWM_OUT~output .open_drain_output = "false";
 // synopsys translate_on
 
-// Location: IOIBUF_X34_Y9_N1
+// Location: IOIBUF_X0_Y11_N8
 cycloneive_io_ibuf \clk~input (
 	.i(clk),
 	.ibar(gnd),
@@ -101,67 +109,20 @@ defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X34_Y9_N15
-cycloneive_io_ibuf \DUTY_CYCLE[0]~input (
-	.i(DUTY_CYCLE[0]),
-	.ibar(gnd),
-	.o(\DUTY_CYCLE[0]~input_o ));
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
 // synopsys translate_off
-defparam \DUTY_CYCLE[0]~input .bus_hold = "false";
-defparam \DUTY_CYCLE[0]~input .simulate_z_as = "z";
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
 // synopsys translate_on
 
-// Location: IOIBUF_X13_Y24_N15
-cycloneive_io_ibuf \DUTY_CYCLE[1]~input (
-	.i(DUTY_CYCLE[1]),
-	.ibar(gnd),
-	.o(\DUTY_CYCLE[1]~input_o ));
-// synopsys translate_off
-defparam \DUTY_CYCLE[1]~input .bus_hold = "false";
-defparam \DUTY_CYCLE[1]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X16_Y0_N8
-cycloneive_io_ibuf \DUTY_CYCLE[2]~input (
-	.i(DUTY_CYCLE[2]),
-	.ibar(gnd),
-	.o(\DUTY_CYCLE[2]~input_o ));
-// synopsys translate_off
-defparam \DUTY_CYCLE[2]~input .bus_hold = "false";
-defparam \DUTY_CYCLE[2]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X18_Y0_N22
-cycloneive_io_ibuf \DUTY_CYCLE[3]~input (
-	.i(DUTY_CYCLE[3]),
-	.ibar(gnd),
-	.o(\DUTY_CYCLE[3]~input_o ));
-// synopsys translate_off
-defparam \DUTY_CYCLE[3]~input .bus_hold = "false";
-defparam \DUTY_CYCLE[3]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X28_Y24_N8
-cycloneive_io_ibuf \DUTY_CYCLE[4]~input (
-	.i(DUTY_CYCLE[4]),
-	.ibar(gnd),
-	.o(\DUTY_CYCLE[4]~input_o ));
-// synopsys translate_off
-defparam \DUTY_CYCLE[4]~input .bus_hold = "false";
-defparam \DUTY_CYCLE[4]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X30_Y24_N22
-cycloneive_io_ibuf \DUTY_CYCLE[5]~input (
-	.i(DUTY_CYCLE[5]),
-	.ibar(gnd),
-	.o(\DUTY_CYCLE[5]~input_o ));
-// synopsys translate_off
-defparam \DUTY_CYCLE[5]~input .bus_hold = "false";
-defparam \DUTY_CYCLE[5]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X16_Y0_N1
+// Location: IOIBUF_X34_Y9_N8
 cycloneive_io_ibuf \DUTY_CYCLE[6]~input (
 	.i(DUTY_CYCLE[6]),
 	.ibar(gnd),
@@ -171,7 +132,54 @@ defparam \DUTY_CYCLE[6]~input .bus_hold = "false";
 defparam \DUTY_CYCLE[6]~input .simulate_z_as = "z";
 // synopsys translate_on
 
-// Location: IOIBUF_X0_Y21_N8
+// Location: IOIBUF_X34_Y9_N15
+cycloneive_io_ibuf \DUTY_CYCLE[3]~input (
+	.i(DUTY_CYCLE[3]),
+	.ibar(gnd),
+	.o(\DUTY_CYCLE[3]~input_o ));
+// synopsys translate_off
+defparam \DUTY_CYCLE[3]~input .bus_hold = "false";
+defparam \DUTY_CYCLE[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y10_N8
+cycloneive_io_ibuf \DUTY_CYCLE[5]~input (
+	.i(DUTY_CYCLE[5]),
+	.ibar(gnd),
+	.o(\DUTY_CYCLE[5]~input_o ));
+// synopsys translate_off
+defparam \DUTY_CYCLE[5]~input .bus_hold = "false";
+defparam \DUTY_CYCLE[5]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y9_N1
+cycloneive_io_ibuf \DUTY_CYCLE[4]~input (
+	.i(DUTY_CYCLE[4]),
+	.ibar(gnd),
+	.o(\DUTY_CYCLE[4]~input_o ));
+// synopsys translate_off
+defparam \DUTY_CYCLE[4]~input .bus_hold = "false";
+defparam \DUTY_CYCLE[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y9_N22
+cycloneive_lcell_comb \LessThan0~1 (
+// Equation(s):
+// \LessThan0~1_combout  = (!\DUTY_CYCLE[6]~input_o  & (!\DUTY_CYCLE[3]~input_o  & (!\DUTY_CYCLE[5]~input_o  & !\DUTY_CYCLE[4]~input_o )))
+
+	.dataa(\DUTY_CYCLE[6]~input_o ),
+	.datab(\DUTY_CYCLE[3]~input_o ),
+	.datac(\DUTY_CYCLE[5]~input_o ),
+	.datad(\DUTY_CYCLE[4]~input_o ),
+	.cin(gnd),
+	.combout(\LessThan0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~1 .lut_mask = 16'h0001;
+defparam \LessThan0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y7_N8
 cycloneive_io_ibuf \DUTY_CYCLE[7]~input (
 	.i(DUTY_CYCLE[7]),
 	.ibar(gnd),
@@ -179,6 +187,142 @@ cycloneive_io_ibuf \DUTY_CYCLE[7]~input (
 // synopsys translate_off
 defparam \DUTY_CYCLE[7]~input .bus_hold = "false";
 defparam \DUTY_CYCLE[7]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y12_N8
+cycloneive_io_ibuf \DUTY_CYCLE[0]~input (
+	.i(DUTY_CYCLE[0]),
+	.ibar(gnd),
+	.o(\DUTY_CYCLE[0]~input_o ));
+// synopsys translate_off
+defparam \DUTY_CYCLE[0]~input .bus_hold = "false";
+defparam \DUTY_CYCLE[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y12_N1
+cycloneive_io_ibuf \DUTY_CYCLE[1]~input (
+	.i(DUTY_CYCLE[1]),
+	.ibar(gnd),
+	.o(\DUTY_CYCLE[1]~input_o ));
+// synopsys translate_off
+defparam \DUTY_CYCLE[1]~input .bus_hold = "false";
+defparam \DUTY_CYCLE[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y9_N22
+cycloneive_io_ibuf \DUTY_CYCLE[2]~input (
+	.i(DUTY_CYCLE[2]),
+	.ibar(gnd),
+	.o(\DUTY_CYCLE[2]~input_o ));
+// synopsys translate_off
+defparam \DUTY_CYCLE[2]~input .bus_hold = "false";
+defparam \DUTY_CYCLE[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y9_N18
+cycloneive_lcell_comb \counter_out[0]~feeder (
+// Equation(s):
+// \counter_out[0]~feeder_combout  = \LessThan0~2_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\LessThan0~2_combout ),
+	.cin(gnd),
+	.combout(\counter_out[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \counter_out[0]~feeder .lut_mask = 16'hFF00;
+defparam \counter_out[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X33_Y9_N19
+dffeas \counter_out[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\counter_out[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(counter_out[0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \counter_out[0] .is_wysiwyg = "true";
+defparam \counter_out[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y9_N20
+cycloneive_lcell_comb \LessThan0~0 (
+// Equation(s):
+// \LessThan0~0_combout  = (!\DUTY_CYCLE[1]~input_o  & (!\DUTY_CYCLE[2]~input_o  & ((counter_out[0]) # (!\DUTY_CYCLE[0]~input_o ))))
+
+	.dataa(\DUTY_CYCLE[0]~input_o ),
+	.datab(\DUTY_CYCLE[1]~input_o ),
+	.datac(\DUTY_CYCLE[2]~input_o ),
+	.datad(counter_out[0]),
+	.cin(gnd),
+	.combout(\LessThan0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~0 .lut_mask = 16'h0301;
+defparam \LessThan0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y9_N28
+cycloneive_lcell_comb \LessThan0~2 (
+// Equation(s):
+// \LessThan0~2_combout  = (\LessThan0~1_combout  & (!\DUTY_CYCLE[7]~input_o  & \LessThan0~0_combout ))
+
+	.dataa(\LessThan0~1_combout ),
+	.datab(gnd),
+	.datac(\DUTY_CYCLE[7]~input_o ),
+	.datad(\LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\LessThan0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~2 .lut_mask = 16'h0A00;
+defparam \LessThan0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y9_N24
+cycloneive_lcell_comb \PWM~0 (
+// Equation(s):
+// \PWM~0_combout  = !\LessThan0~2_combout 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\LessThan0~2_combout ),
+	.cin(gnd),
+	.combout(\PWM~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \PWM~0 .lut_mask = 16'h00FF;
+defparam \PWM~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X33_Y9_N25
+dffeas PWM(
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\PWM~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\PWM~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam PWM.is_wysiwyg = "true";
+defparam PWM.power_up = "low";
 // synopsys translate_on
 
 assign PWM_OUT = \PWM_OUT~output_o ;

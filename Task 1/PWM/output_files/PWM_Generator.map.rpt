@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PWM_Generator
-Tue Oct 11 18:33:54 2022
+Tue Oct 18 13:30:18 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -18,6 +18,7 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
  10. Post-Synthesis Netlist Statistics for Top Partition
  11. Elapsed Time Per Partition
  12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -44,15 +45,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 11 18:33:54 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Oct 18 13:30:18 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; PWM_Generator                               ;
 ; Top-level Entity Name              ; PWM_Generator                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
+; Total logic elements               ; 4                                           ;
+;     Total combinational functions  ; 4                                           ;
+;     Dedicated logic registers      ; 2                                           ;
+; Total registers                    ; 2                                           ;
 ; Total pins                         ; 10                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -155,10 +156,11 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -171,35 +173,36 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------+-------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary         ;
-+---------------------------------------------+-------+
-; Resource                                    ; Usage ;
-+---------------------------------------------+-------+
-;                                             ;       ;
-; Total combinational functions               ; 0     ;
-; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 0     ;
-;     -- 3 input functions                    ; 0     ;
-;     -- <=2 input functions                  ; 0     ;
-;                                             ;       ;
-; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 0     ;
-;     -- arithmetic mode                      ; 0     ;
-;                                             ;       ;
-; Total registers                             ; 0     ;
-;     -- Dedicated logic registers            ; 0     ;
-;     -- I/O registers                        ; 0     ;
-;                                             ;       ;
-; I/O pins                                    ; 10    ;
-;                                             ;       ;
-; Embedded Multiplier 9-bit elements          ; 0     ;
-;                                             ;       ;
-; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 1     ;
-; Total fan-out                               ; 10    ;
-; Average fan-out                             ; 0.50  ;
-+---------------------------------------------+-------+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 4           ;
+;                                             ;             ;
+; Total combinational functions               ; 4           ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 2           ;
+;     -- 3 input functions                    ; 1           ;
+;     -- <=2 input functions                  ; 1           ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 4           ;
+;     -- arithmetic mode                      ; 0           ;
+;                                             ;             ;
+; Total registers                             ; 2           ;
+;     -- Dedicated logic registers            ; 2           ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 10          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; LessThan0~2 ;
+; Maximum fan-out                             ; 2           ;
+; Total fan-out                               ; 27          ;
+; Average fan-out                             ; 1.04        ;
++---------------------------------------------+-------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -207,7 +210,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
-; |PWM_Generator             ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |PWM_Generator      ; PWM_Generator ; work         ;
+; |PWM_Generator             ; 4 (4)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 10   ; 0            ; |PWM_Generator      ; PWM_Generator ; work         ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -217,8 +220,8 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------+----------------------------------------+
 ; Register name                         ; Reason for Removal                     ;
 +---------------------------------------+----------------------------------------+
-; PW                                    ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 1 ;                                        ;
+; counter_out[1..7]                     ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 7 ;                                        ;
 +---------------------------------------+----------------------------------------+
 
 
@@ -227,7 +230,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 2     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -243,12 +246,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 10                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; cycloneiii_ff         ; 2                           ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 4                           ;
+;     normal            ; 4                           ;
+;         1 data inputs ; 1                           ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 2                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 3.00                        ;
+; Average LUT depth     ; 2.53                        ;
 +-----------------------+-----------------------------+
 
 
@@ -267,35 +274,33 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Oct 11 18:33:47 2022
+    Info: Processing started: Tue Oct 18 13:30:10 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PWM_Generator -c PWM_Generator
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Warning (12019): Can't analyze file -- file simulation/modelsim/PWM_Generator_Verilog_tb.sv is missing
+Info (12021): Found 1 design units, including 1 entities, in source file simulation/modelsim/pwm_generator_verilog_tb.sv
+    Info (12023): Found entity 1: PWM_Generator_Verilog_tb File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim/PWM_Generator_Verilog_tb.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file pwm_generator.v
     Info (12023): Found entity 1: PWM_Generator File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 21
 Info (12127): Elaborating entity "PWM_Generator" for the top level hierarchy
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "PWM_OUT" is stuck at GND File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 26
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/output_files/PWM_Generator.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 23
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[0]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[1]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[2]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[3]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[4]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[5]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[6]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-    Warning (15610): No output dependent on input pin "DUTY_CYCLE[7]" File: C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v Line: 24
-Info (21057): Implemented 10 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 15 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 1 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 14 warnings
-    Info: Peak virtual memory: 4727 megabytes
-    Info: Processing ended: Tue Oct 11 18:33:54 2022
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:17
+    Info (21061): Implemented 5 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 4757 megabytes
+    Info: Processing ended: Tue Oct 18 13:30:18 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:18
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/output_files/PWM_Generator.map.smsg.
 
 

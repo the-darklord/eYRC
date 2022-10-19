@@ -12,36 +12,39 @@
 # 
 # vlog -vlog01compat -work work +incdir+C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM {C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:34:17 on Oct 11,2022
+# Start time: 13:30:32 on Oct 18,2022
 # vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM" C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/PWM_Generator.v 
 # -- Compiling module PWM_Generator
 # 
 # Top level modules:
 # 	PWM_Generator
-# End time: 18:34:17 on Oct 11,2022, Elapsed time: 0:00:00
+# End time: 13:30:32 on Oct 18,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
 # vlog -sv -work work +incdir+C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim {C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim/PWM_Generator_Verilog_tb.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 18:34:17 on Oct 11,2022
+# Start time: 13:30:32 on Oct 18,2022
 # vlog -reportprogress 300 -sv -work work "+incdir+C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim" C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim/PWM_Generator_Verilog_tb.sv 
-# ** Error: (vlog-7) Failed to open design unit file "C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim/PWM_Generator_Verilog_tb.sv" in read mode.
-# No such file or directory. (errno = ENOENT)
-# End time: 18:34:17 on Oct 11,2022, Elapsed time: 0:00:00
-# Errors: 1, Warnings: 0
-# ** Error: C:/intelFPGA_lite/19.1/modelsim_ase/win32aloem/vlog failed.
-# Error in macro ./PWM_Generator_run_msim_rtl_verilog.do line 10
-# C:/intelFPGA_lite/19.1/modelsim_ase/win32aloem/vlog failed.
-#     while executing
-# "vlog -sv -work work +incdir+C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/modelsim {C:/Users/SAIMIHIRNATH/Documents/e-yanta/PWM/simulation/mo..."
-vsim -gui -l msim_transcript work.PWM_Generator
-# vsim -gui -l msim_transcript work.PWM_Generator 
-# Start time: 18:34:35 on Oct 11,2022
+# -- Compiling module PWM_Generator_Verilog_tb
+# 
+# Top level modules:
+# 	PWM_Generator_Verilog_tb
+# End time: 13:30:33 on Oct 18,2022, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  PWM_Generator_Verilog_tb
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" PWM_Generator_Verilog_tb 
+# Start time: 13:30:33 on Oct 18,2022
+# Loading sv_std.std
+# Loading work.PWM_Generator_Verilog_tb
 # Loading work.PWM_Generator
-add wave -position insertpoint  \
-sim:/PWM_Generator/clk \
-sim:/PWM_Generator/DUTY_CYCLE \
-sim:/PWM_Generator/PWM_OUT
-run -all
-# End time: 18:35:05 on Oct 11,2022, Elapsed time: 0:00:30
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run 9000 ns
+# ERROR ENCOUNTERED IN YOUR DESIGN
+# End time: 13:30:42 on Oct 18,2022, Elapsed time: 0:00:09
 # Errors: 0, Warnings: 0

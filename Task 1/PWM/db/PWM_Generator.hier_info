@@ -1,13 +1,29 @@
 |PWM_Generator
-clk => PW.CLK
-DUTY_CYCLE[0] => ~NO_FANOUT~
-DUTY_CYCLE[1] => ~NO_FANOUT~
-DUTY_CYCLE[2] => ~NO_FANOUT~
-DUTY_CYCLE[3] => ~NO_FANOUT~
-DUTY_CYCLE[4] => ~NO_FANOUT~
-DUTY_CYCLE[5] => ~NO_FANOUT~
-DUTY_CYCLE[6] => ~NO_FANOUT~
-DUTY_CYCLE[7] => ~NO_FANOUT~
-PWM_OUT << PW.DB_MAX_OUTPUT_PORT_TYPE
+clk => PWM.CLK
+clk => counter_out[0].CLK
+clk => counter_out[1].CLK
+clk => counter_out[2].CLK
+clk => counter_out[3].CLK
+clk => counter_out[4].CLK
+clk => counter_out[5].CLK
+clk => counter_out[6].CLK
+clk => counter_out[7].CLK
+DUTY_CYCLE[0] => LessThan0.IN16
+DUTY_CYCLE[0] => LessThan1.IN16
+DUTY_CYCLE[1] => LessThan0.IN15
+DUTY_CYCLE[1] => LessThan1.IN15
+DUTY_CYCLE[2] => LessThan0.IN14
+DUTY_CYCLE[2] => LessThan1.IN14
+DUTY_CYCLE[3] => LessThan0.IN13
+DUTY_CYCLE[3] => LessThan1.IN13
+DUTY_CYCLE[4] => LessThan0.IN12
+DUTY_CYCLE[4] => LessThan1.IN12
+DUTY_CYCLE[5] => LessThan0.IN11
+DUTY_CYCLE[5] => LessThan1.IN11
+DUTY_CYCLE[6] => LessThan0.IN10
+DUTY_CYCLE[6] => LessThan1.IN10
+DUTY_CYCLE[7] => LessThan0.IN9
+DUTY_CYCLE[7] => LessThan1.IN9
+PWM_OUT <= PWM.DB_MAX_OUTPUT_PORT_TYPE
 
 
