@@ -25,15 +25,28 @@ module PWM_Generator(
 	output PWM_OUT         // Output PWM
 );
  
-////////////////////////WRITE YOUR CODE FROM HERE//////////////////// 
-reg PWM=0;
-assign PWM_OUT=PWM;
-reg [7:0]counter_out;
-always @ (posedge clk)
+////////////////////////WRITE YOUR CODE FROM HERE////////////////////
+
+reg [6:0] count =0;
+
+always@(posedge clk)
 begin
-		counter_out = counter_out + 1'b1;
-		PWM = (DUTY_CYCLE>=counter_out);
+
+if(count==50)
+	begin
+		count=1;
+	
+	end
+else
+	begin
+		count=count+1;
+	
+	end
+
 end
+
+assign PWM_OUT= (2*count <= DUTY_CYCLE);
+
 ////////////////////////YOUR CODE ENDS HERE//////////////////////////
 endmodule
 ///////////////////////////////MODULE ENDS///////////////////////////

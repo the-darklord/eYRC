@@ -1,5 +1,5 @@
 Flow report for PWM_Generator
-Tue Oct 18 13:30:26 2022
+Wed Oct 19 22:07:36 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Oct 18 13:30:26 2022       ;
+; Flow Status                        ; Successful - Wed Oct 19 22:07:36 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; PWM_Generator                               ;
 ; Top-level Entity Name              ; PWM_Generator                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 5 / 6,272 ( < 1 % )                         ;
-;     Total combinational functions  ; 4 / 6,272 ( < 1 % )                         ;
-;     Dedicated logic registers      ; 2 / 6,272 ( < 1 % )                         ;
-; Total registers                    ; 2                                           ;
+; Total logic elements               ; 19 / 6,272 ( < 1 % )                        ;
+;     Total combinational functions  ; 19 / 6,272 ( < 1 % )                        ;
+;     Dedicated logic registers      ; 7 / 6,272 ( < 1 % )                         ;
+; Total registers                    ; 7                                           ;
 ; Total pins                         ; 10 / 92 ( 11 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 276,480 ( 0 % )                         ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/18/2022 13:30:10 ;
+; Start date & time ; 10/19/2022 22:07:16 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PWM_Generator       ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+-------------------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                      ; Value                                           ; Default Value ; Entity Name ; Section Id                        ;
 +--------------------------------------+-------------------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID                ; 136411544827897.166608001003260                 ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID                ; 1097306501793.166619743617760                   ; --            ; --          ; --                                ;
 ; EDA_DESIGN_INSTANCE_NAME             ; NA                                              ; --            ; --          ; PWM_Generator_Verilog_tb          ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                             ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST      ; Off                                             ; --            ; --          ; eda_board_design_boundary_scan    ;
@@ -103,12 +103,12 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 4757 MB             ; 00:00:18                           ;
-; Fitter               ; 00:00:03     ; 1.0                     ; 5494 MB             ; 00:00:04                           ;
-; Assembler            ; 00:00:01     ; 1.0                     ; 4677 MB             ; 00:00:01                           ;
-; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4768 MB             ; 00:00:01                           ;
-; EDA Netlist Writer   ; 00:00:00     ; 1.0                     ; 4634 MB             ; 00:00:00                           ;
-; Total                ; 00:00:12     ; --                      ; --                  ; 00:00:24                           ;
+; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4822 MB             ; 00:00:09                           ;
+; Fitter               ; 00:00:04     ; 1.0                     ; 6084 MB             ; 00:00:03                           ;
+; Assembler            ; 00:00:01     ; 1.0                     ; 4680 MB             ; 00:00:01                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.0                     ; 4848 MB             ; 00:00:01                           ;
+; EDA Netlist Writer   ; 00:00:01     ; 1.0                     ; 4637 MB             ; 00:00:00                           ;
+; Total                ; 00:00:16     ; --                      ; --                  ; 00:00:14                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -117,11 +117,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; THEDARKLORD      ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; THEDARKLORD      ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; THEDARKLORD      ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; THEDARKLORD      ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer   ; THEDARKLORD      ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; LAPTOP-ERUPGO3H  ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; LAPTOP-ERUPGO3H  ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; LAPTOP-ERUPGO3H  ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; LAPTOP-ERUPGO3H  ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; LAPTOP-ERUPGO3H  ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 

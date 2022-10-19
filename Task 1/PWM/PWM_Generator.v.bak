@@ -26,19 +26,9 @@ module PWM_Generator(
 );
  
 ////////////////////////WRITE YOUR CODE FROM HERE////////////////////
-reg PWM = 1'b0;
-assign PWM_OUT = PWM; 
 
 
-reg [7:0]counter_out; // 8-bit counter
-always @ (*)
-begin
-		counter_out = counter_out + 1'b1;
-		if(DUTY_CYCLE>counter_out)
-			PWM = 1'b1;
-		else
-			PWM = 1'b0;
-end
+
 
 
 ////////////////////////YOUR CODE ENDS HERE//////////////////////////
